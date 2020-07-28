@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "669069041561",
+    "firebase_url": "https://loans-566de.firebaseio.com",
+    "project_id": "loans-566de",
+    "storage_bucket": "loans-566de.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669069041561:android:82138c8f0566c79b4b3d08",
+        "android_client_info": {
+          "package_name": "com.company.loans"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669069041561-onskq8tqb4r8ac7pvknt1sj5402qi6vu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.company.loans",
+            "certificate_hash": "908eef1cdc6941b0f67f4c1b061849799ef8a819"
+          }
+        },
+        {
+          "client_id": "669069041561-524ghk4rq8pt9mombr77kanptmqfkcgl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhgOi8vo5a2lcm_onFuJcf5vWy9JohbBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "669069041561-524ghk4rq8pt9mombr77kanptmqfkcgl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

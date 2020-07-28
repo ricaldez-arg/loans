@@ -1,0 +1,63 @@
+login: Iniciar session
+noAccount: Aun no tienes una cuenta?
+signup: Registrate!
+createAccount: Crear cuenta 
+goToLogin: Volver al inicio de session
+termsConditions: Terminos y condiciones
+welcome: Bienvenido !
+email: Correo
+emailExample: mi-correo@gmail.com
+emailErrorMessage: Introduce un correo valido
+password: Contraseña
+passwordExample: Ingrese su Contraseña
+passwordErrorMessage: Debe tener almenos 8 caracteres
+name: Nombre
+nameExample: Ingresa tu nombre
+nameErrorMessage: En este campo solo se permite letras
+gender: Genero
+male: Masculino
+female: Femenino
+other: Otro
+newDebt: Nueva deuda
+save: GUARDAR
+debtReason: Motivo de deuda / Concepto
+debtReasonHint: Escribe el motivo de la deuda
+paymentPeriod: Periodo de pago
+selectPerson: Seleccionar persona
+personName: Nombre y apellido de la persona
+owesMe: Me debe
+iOwes: Le debo
+amount: Monto
+interest: Interest %
+
+once: Unico
+daily: Diario
+weekly: Semanal
+monthly: Mensual
+annually: Anual
+
+monday: Lunes
+tuesday: Martes
+wednesday: Miercoles
+thursday: Jueves
+friday: Viernes
+saturday: Sabado
+sunday: Domingo
+
+bs: $$
+sus: USD
+
+payDate: Fecha de pago
+hour: Hora
+payDay: Dia de pago
+dayOfMonth: Dia de cada mes
+selectDay: Selecciona el dia
+helpDate: SELECCIONA LA FECHA
+labelDate: Ingresa la fecha
+cancel: Cancelar
+acept: Aceptar
+errorFormatDate: Formato invalido
+errorInvalidDate: Fecha invalida
+fieldEmptyError: Este campo no puede estar vacio
+invalidValue: Entrada invalida
+fillDateField: Completa el campo de fecha
