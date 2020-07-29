@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:loans/models/debt/debt.dart';
 import 'package:loans/models/enums.dart';
+import 'package:loans/providers/session/session_provider.dart';
 import 'package:loans/services/user_service/debt_service.dart';
 import 'package:loans/utils/constants.dart';
+import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -117,10 +119,7 @@ class NewDebtProvider with ChangeNotifier {
     if (!allValid) {
       notifyListeners();
     } else {
-      Debt newDebt = _generateDebt();
-      print(Uuid().v1()); // will remove
-      print(newDebt.toJson()); // will remove
-      print(newDebt);
+      Debt newDebt = _generateDebt(context);
       await _debtService.createDebt(newDebt).then((value) {
         clear();
         Navigator.pushNamed(context, initialRoute);
@@ -185,15 +184,17 @@ class NewDebtProvider with ChangeNotifier {
     }
   }
 
-  _generateDebt() {
+  _generateDebt(context) {
+    final sessionProvider =
+        Provider.of<SessionProvider>(context, listen: false);
     return Debt(
       amount: Amount(
         currency: _selectedCoin,
         originalAmount: num.parse(_amount),
       ),
       createdAt: DateTime.now(),
-      creditor: _isCreditor ? 'My actual Id' : _name,
-      debtor: !_isCreditor ? 'My actual Id' : _name,
+      creditor: _isCreditor ? sessionProvider.user.id : _name,
+      debtor: !_isCreditor ? sessionProvider.user.id : _name,
       interest: Interest(
         percent: num.parse(_interest),
         period: _periodicity,
