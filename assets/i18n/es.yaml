@@ -28,7 +28,15 @@ personName: Nombre y apellido de la persona
 owesMe: Me debe
 iOwes: Le debo
 amount: Monto
-interest: Interest %
+interest: Interes %
+interestAmount: Interes
+onAccount: A cuenta
+toPay: Saldo
+collect: Cobrar
+pay: Pagar
+amountHint: Escribe la cantidad
+remainingAmount: Monto restante
+invalidAmount: Selecciona un monto valido
 
 once: Unico
 daily: Diario
@@ -56,6 +64,7 @@ helpDate: SELECCIONA LA FECHA
 labelDate: Ingresa la fecha
 cancel: Cancelar
 acept: Aceptar
+continue: Continuar
 errorFormatDate: Formato invalido
 errorInvalidDate: Fecha invalida
 fieldEmptyError: Este campo no puede estar vacio

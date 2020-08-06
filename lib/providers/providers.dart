@@ -1,4 +1,5 @@
 import 'package:loans/providers/debt/new_debt_provider.dart';
+import 'package:loans/providers/debt/receive_debt_provider.dart';
 import 'package:loans/providers/session/loggin_provider.dart';
 import 'package:loans/providers/session/session_provider.dart';
 import 'package:loans/providers/session/signup_provider.dart';
@@ -12,6 +13,7 @@ getProviders(FirebaseApp app) {
     ChangeNotifierProvider(create: (_) => LoginProvider()),
     ChangeNotifierProvider(create: (_) => SignupProvider()),
     ChangeNotifierProvider(create: (_) => NewDebtProvider(app)),
+    ChangeNotifierProvider(create: (_) => ReceiveDebtProvider()),
   ];
   return providers;
 }
