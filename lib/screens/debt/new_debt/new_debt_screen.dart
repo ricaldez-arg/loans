@@ -49,6 +49,11 @@ class NewDebtScreen extends StatelessWidget {
           borderSide: BorderSide(),
         ),
       ),
+      initialValue: Provider.of<NewDebtProvider>(context).reason,
+      onChanged: (text) {
+                  Provider.of<NewDebtProvider>(context, listen: false)
+                      .changeReason(text);
+                },
     );
   }
 

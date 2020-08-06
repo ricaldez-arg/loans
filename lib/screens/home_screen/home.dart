@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:loans/models/debt/debt.dart';
+import 'package:loans/providers/debt/receive_debt_provider.dart';
 import 'package:loans/providers/session/loggin_provider.dart';
 import 'package:loans/providers/session/session_provider.dart';
+import 'package:loans/screens/debt/receive/receive_screen.dart';
 import 'package:loans/services/user_service/debt_service.dart';
 import 'package:loans/utils/constants.dart';
 import 'package:provider/provider.dart';
@@ -130,6 +132,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Provider.of<ReceiveDebtProvider>(context, listen: false).loadDebts(context);
     return WillPopScope(
       onWillPop: () {
         return Future(() => false);
@@ -142,15 +145,18 @@ class Home extends StatelessWidget {
             userAvatar(context),
           ],
         ),
-        body: Container(
-          child: makeBody(context),
-        ),
+        backgroundColor: Colors.grey[300],
+        // body: Container(
+        //   child: makeBody(context),
+        // ),
+        body: ReceiveScreen(),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.pushNamed(context, newDebtRoute);
           },
           child: Icon(Icons.add),
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       ),
     );
   }

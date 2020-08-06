@@ -7,6 +7,7 @@ class Debt {
   String id;
   String debtor;
   String creditor;
+  String reason;
   DateTime createdAt;
   List<DateTime> updates;
   Amount amount;
@@ -18,6 +19,7 @@ class Debt {
       {this.id,
       this.debtor,
       this.creditor,
+      this.reason,
       this.createdAt,
       this.updates,
       this.amount,
@@ -25,11 +27,27 @@ class Debt {
       this.paymentPeriod,
       this.payments});
 
+  num calculateAmountPaid() {
+    final paymentsAmount = payments
+        .fold(0, (previousValue, payment) => previousValue + payment.amount);
+    return paymentsAmount;
+  }
+
+  num calculateEarnedInterest() {
+    return amount.originalAmount * (interest.percent / 100);
+  }
+
+  num calculateAmountToPay() {
+    return (calculateEarnedInterest() + amount.originalAmount) -
+        calculateAmountPaid();
+  }
+
   factory Debt.fromJson(Map json) {
     return Debt(
       id: json['_id'],
       debtor: json['debtor'],
       creditor: json['creditor'],
+      reason: json['reason'],
       createdAt: DateTime.parse(json['createdAt']),
       updates: updatesFromJson(json['updates']),
       amount: Amount.fromJson(json['amount']),
@@ -44,22 +62,23 @@ class Debt {
       '_id': id,
       'debtor': debtor,
       'creditor': creditor,
+      'reason': reason,
       'createdAt': createdAt.toIso8601String(),
-      'updates': _updatesToJson(),
+      'updates': updatesToJson(),
       'amount': amount.toJson(),
       'interest': interest.toJson(),
       'paymentPeriod': paymentPeriod.toJson(),
-      'payments': _paymentsToJson(),
+      'payments': paymentsToJson(),
     };
   }
 
-  _updatesToJson() {
+  updatesToJson() {
     return List<DateTime>.from(updates).map((update) {
       update.toIso8601String();
     }).toList();
   }
 
-  _paymentsToJson() {
+  paymentsToJson() {
     return List<Payment>.from(payments).map((payment) {
       return payment.toJson();
     }).toList();
@@ -157,7 +176,7 @@ class Payment {
 
   factory Payment.fromJson(Map json) {
     return Payment(
-      json['date'],
+      DateTime.parse(json['date']),
       json['amount'],
     );
   }

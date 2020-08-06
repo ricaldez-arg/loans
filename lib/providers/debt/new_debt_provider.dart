@@ -5,7 +5,6 @@ import 'package:loans/providers/session/session_provider.dart';
 import 'package:loans/services/user_service/debt_service.dart';
 import 'package:loans/utils/constants.dart';
 import 'package:provider/provider.dart';
-import 'package:uuid/uuid.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 class NewDebtProvider with ChangeNotifier {
@@ -16,6 +15,7 @@ class NewDebtProvider with ChangeNotifier {
   String _amount;
   String _interest = '0';
   String _name;
+  String _reason;
   DateTime _selectedDateTime;
   TimeOfDay _selectedTime = TimeOfDay(hour: 9, minute: 0);
   int _selectedDay = 1;
@@ -37,6 +37,7 @@ class NewDebtProvider with ChangeNotifier {
   get selectedCoin => _selectedCoin;
   get amount => _amount;
   get interest => _interest;
+  get reason => _reason;
   get selectedDate => _selectedDateTime;
   get selectedTime => _selectedTime;
   get selectedDay => _selectedDay;
@@ -45,6 +46,11 @@ class NewDebtProvider with ChangeNotifier {
 
   changeName(text) {
     _name = text;
+    notifyListeners();
+  }
+
+  changeReason(text) {
+    _reason = text;
     notifyListeners();
   }
 
@@ -107,6 +113,7 @@ class NewDebtProvider with ChangeNotifier {
     _amount = null;
     _interest = '0';
     _name = null;
+    _reason = null;
     _selectedDateTime = null;
     _selectedTime = TimeOfDay(hour: 9, minute: 0);
     _selectedDay = 1;
@@ -195,6 +202,7 @@ class NewDebtProvider with ChangeNotifier {
       createdAt: DateTime.now(),
       creditor: _isCreditor ? sessionProvider.user.id : _name,
       debtor: !_isCreditor ? sessionProvider.user.id : _name,
+      reason: _reason,
       interest: Interest(
         percent: num.parse(_interest),
         period: _periodicity,

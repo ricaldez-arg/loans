@@ -29,6 +29,14 @@ owesMe: Owes me
 iOwes: I owes
 amount: Amount
 interest: Interest %
+interestAmount: Interest
+onAccount: On account
+toPay: To pay
+collect: Collect
+pay: Pay
+amountHint: Write the quantity
+remainingAmount: Remaining amount
+invalidAmount: Select a valid amount
 
 once: Once
 daily: Daily
@@ -56,6 +64,7 @@ helpDate: SELECT DATE
 labelDate: Enter date
 cancel: Cancel
 acept: OK
+continue: Continue
 errorFormatDate: Invalid date format
 errorInvalidDate: Invalid date
 fieldEmptyError: This field can't be empty
